@@ -3,9 +3,16 @@
 ## Progress Summary (as of 2026-05-08)
 
 - **Phase 1** — COMPLETE. Backend and frontend tested and working.
-- **Phase 2** — COMPLETE. Backend and frontend built; awaiting manual testing.
-- **Phase 3** — Not started.
+- **Phase 2** — COMPLETE. Backend and frontend tested and working.
+- **Phase 3** — COMPLETE. Backend and frontend built; awaiting manual testing.
 - **Phase 4** — Not started.
+
+### Phase 3 Implementation Notes
+- `backend/routers/assets.py` — `POST /assets/{asset_type}` (validate + insert) and `GET /assets/{asset_type}` (with optional `asset_owner` / `asset_location` query filters).
+- `jsonschema` added to `requirements.txt`. Run `pip install -r requirements.txt` to pick it up.
+- POST flow: auth check → fetch latest schema → auto-inject `asset_type` → validate all records → generate UUIDs (`SRV-*`, `STR-*`, `DB-*`, unique across all three collections) → write via MongoDB transaction (all-or-nothing). Returns 400 on any validation or write failure.
+- `frontend/app/assets/page.tsx` — asset-type tabs; left panel = submit form (admin of matching type only, amber notice otherwise); right panel = searchable asset list with `asset_owner` / `asset_location` filters.
+- Nav updated on Dashboard and Schemas pages to include Assets link.
 
 ### Phase 2 Implementation Notes
 - `backend/routers/schemas.py` — `POST /schemas/{asset_type}` and `GET /schemas/{asset_type}`.

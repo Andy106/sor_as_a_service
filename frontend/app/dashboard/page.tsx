@@ -41,6 +41,9 @@ export default function DashboardPage() {
             <Link href="/schemas" className="text-gray-500 hover:text-gray-800">
               Schemas
             </Link>
+            <Link href="/assets" className="text-gray-500 hover:text-gray-800">
+              Assets
+            </Link>
           </nav>
         </div>
         <div className="flex items-center gap-4">
