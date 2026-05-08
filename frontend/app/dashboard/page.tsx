@@ -44,6 +44,9 @@ export default function DashboardPage() {
             <Link href="/assets" className="text-gray-500 hover:text-gray-800">
               Assets
             </Link>
+            <Link href="/reports" className="text-gray-500 hover:text-gray-800">
+              Reports
+            </Link>
           </nav>
         </div>
         <div className="flex items-center gap-4">
@@ -69,7 +72,7 @@ export default function DashboardPage() {
           Welcome, {user.username}!
         </h2>
         <p className="text-gray-500 text-sm">
-          Use the navigation above to manage Schemas. Asset ingestion and Reporting are coming soon.
+          Use the navigation above to manage Schemas, ingest Assets, and view Reports.
         </p>
       </main>
     </div>

@@ -116,6 +116,9 @@ export default function SchemasPage() {
             <Link href="/assets" className="text-gray-500 hover:text-gray-800">
               Assets
             </Link>
+            <Link href="/reports" className="text-gray-500 hover:text-gray-800">
+              Reports
+            </Link>
           </nav>
         </div>
         <div className="flex items-center gap-4">

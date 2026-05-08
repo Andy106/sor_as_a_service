@@ -4,8 +4,16 @@
 
 - **Phase 1** — COMPLETE. Backend and frontend tested and working.
 - **Phase 2** — COMPLETE. Backend and frontend tested and working.
-- **Phase 3** — COMPLETE. Backend and frontend built; awaiting manual testing.
-- **Phase 4** — Not started.
+- **Phase 3** — COMPLETE. Backend and frontend tested and working.
+- **Phase 4** — COMPLETE. Frontend built; awaiting manual testing.
+
+### Phase 4 Implementation Notes
+- `frontend/app/reports/page.tsx` — three dropdowns (Asset Type, Asset Owner, Asset Location); Owner/Location options are derived dynamically from the loaded data.
+- Selecting "All Types" fires parallel GET requests against all three asset collections and merges results; selecting a specific type fires one request. Owner/Location filtering is applied client-side for instant response.
+- Three recharts `BarChart` panels: Count by Asset Type (blue), Count by Asset Owner (green), Count by Asset Location (purple). Charts only render when there are records.
+- Asset records table below charts with scrollable rows; Asset Type shown as a colour-coded badge.
+- `recharts` added to `frontend/package.json` (`npm install recharts` already run).
+- Nav updated on Dashboard, Schemas, and Assets pages to include Reports link.
 
 ### Phase 3 Implementation Notes
 - `backend/routers/assets.py` — `POST /assets/{asset_type}` (validate + insert) and `GET /assets/{asset_type}` (with optional `asset_owner` / `asset_location` query filters).
