@@ -1,11 +1,19 @@
 # System of Record (SOR) as a Service
 
-## Progress Summary (as of 2026-05-07)
+## Progress Summary (as of 2026-05-08)
 
 - **Phase 1** — COMPLETE. Backend and frontend tested and working.
-- **Phase 2** — Not started.
+- **Phase 2** — COMPLETE. Backend and frontend built; awaiting manual testing.
 - **Phase 3** — Not started.
 - **Phase 4** — Not started.
+
+### Phase 2 Implementation Notes
+- `backend/routers/schemas.py` — `POST /schemas/{asset_type}` and `GET /schemas/{asset_type}`.
+- Auth uses `X-Username` header (from `auth.py`); `verify_asset_type_access` enforces role — returns 403 `Insufficient entitlements` for cross-type or consumer POST.
+- Version auto-increments: no prior schema → `1.0`; prior exists → `max + 1.0` (e.g. `2.0`).
+- `backend/seed_schemas.py` — seeds default schemas for servers, storage, databases into `sor_db.schemas`. Run once: `python seed_schemas.py` from `backend/`.
+- `frontend/app/schemas/page.tsx` — asset-type tabs; left panel shows all versions (sorted newest first); right panel shows Add form (admin of matching type only) or amber auth notice.
+- Dashboard header updated with nav link to Schemas.
 
 ### Phase 1 Implementation Notes
 - `backend/` — FastAPI app; `db.py` connects to MongoDB Atlas via `DATABASE_URL` in root `.env`.

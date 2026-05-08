@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 interface SorUser {
   username: string;
@@ -31,7 +32,17 @@ export default function DashboardPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <header className="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between">
-        <h1 className="text-lg font-bold text-gray-800">SOR as a Service</h1>
+        <div className="flex items-center gap-6">
+          <h1 className="text-lg font-bold text-gray-800">SOR as a Service</h1>
+          <nav className="flex gap-4 text-sm">
+            <Link href="/dashboard" className="text-blue-600 font-medium">
+              Dashboard
+            </Link>
+            <Link href="/schemas" className="text-gray-500 hover:text-gray-800">
+              Schemas
+            </Link>
+          </nav>
+        </div>
         <div className="flex items-center gap-4">
           <span className="text-sm text-gray-600">
             Signed in as <span className="font-medium">{user.username}</span>
@@ -55,7 +66,7 @@ export default function DashboardPage() {
           Welcome, {user.username}!
         </h2>
         <p className="text-gray-500 text-sm">
-          More features (Schema management, Asset ingestion, Reporting) will appear here as they are built out.
+          Use the navigation above to manage Schemas. Asset ingestion and Reporting are coming soon.
         </p>
       </main>
     </div>
