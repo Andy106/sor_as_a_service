@@ -5,7 +5,7 @@
 - **Phase 1** — COMPLETE. Backend and frontend tested and working.
 - **Phase 2** — COMPLETE. Backend and frontend tested and working.
 - **Phase 3** — COMPLETE. Backend and frontend tested and working.
-- **Phase 4** — COMPLETE. Frontend built; awaiting manual testing.
+- **Phase 4** — COMPLETE. Frontend tested and working.
 
 ### Phase 4 Implementation Notes
 - `frontend/app/reports/page.tsx` — three dropdowns (Asset Type, Asset Owner, Asset Location); Owner/Location options are derived dynamically from the loaded data.
